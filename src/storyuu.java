@@ -1,4 +1,7 @@
 
+import javax.swing.JOptionPane;
+
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -9,7 +12,7 @@
  * @author Enjel Rupiani
  */
 public class storyuu extends javax.swing.JFrame {
-    int reguler,ultra,gold,price,buy,total,change;
+    int reguler,ultra,gold,price,buy,total,payment,change;
 
     /**
      * Creates new form storyuu
@@ -47,6 +50,8 @@ public class storyuu extends javax.swing.JFrame {
         txt_purchaseamount = new javax.swing.JTextField();
         txt_totalpay = new javax.swing.JTextField();
         txt_change = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        txt_payment = new javax.swing.JTextField();
         btn_input = new javax.swing.JButton();
         btn_print = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -54,6 +59,8 @@ public class storyuu extends javax.swing.JFrame {
         btn_exit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAutoRequestFocus(false);
+        setBackground(new java.awt.Color(255, 204, 204));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Movie Ticket Reservation");
@@ -72,6 +79,11 @@ public class storyuu extends javax.swing.JFrame {
         });
 
         rb_reguler.setText("Regular");
+        rb_reguler.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rb_regulerActionPerformed(evt);
+            }
+        });
 
         rb_ultraxd.setText("Ultra XD");
         rb_ultraxd.addActionListener(new java.awt.event.ActionListener() {
@@ -81,6 +93,11 @@ public class storyuu extends javax.swing.JFrame {
         });
 
         rb_gold.setText("Gold");
+        rb_gold.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rb_goldActionPerformed(evt);
+            }
+        });
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Purchasing Data"));
 
@@ -92,6 +109,47 @@ public class storyuu extends javax.swing.JFrame {
 
         jLabel9.setText("Change");
 
+        txt_purchaseamount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_purchaseamountActionPerformed(evt);
+            }
+        });
+        txt_purchaseamount.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_purchaseamountKeyReleased(evt);
+            }
+        });
+
+        txt_totalpay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_totalpayActionPerformed(evt);
+            }
+        });
+
+        txt_change.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_changeActionPerformed(evt);
+            }
+        });
+        txt_change.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_changeKeyReleased(evt);
+            }
+        });
+
+        jLabel10.setText("Payment");
+
+        txt_payment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_paymentActionPerformed(evt);
+            }
+        });
+        txt_payment.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_paymentKeyReleased(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -102,13 +160,15 @@ public class storyuu extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(jLabel7)
                     .addComponent(jLabel8)
-                    .addComponent(jLabel9))
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_change, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
-                    .addComponent(txt_totalpay)
+                    .addComponent(txt_totalpay, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
                     .addComponent(txt_purchaseamount)
-                    .addComponent(txt_name))
+                    .addComponent(txt_name)
+                    .addComponent(txt_change)
+                    .addComponent(txt_payment))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -126,87 +186,106 @@ public class storyuu extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
                     .addComponent(txt_totalpay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9)
-                    .addComponent(txt_change, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(15, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(txt_payment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txt_change, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(35, 35, 35))
         );
 
         btn_input.setText("Input Data");
+        btn_input.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_inputActionPerformed(evt);
+            }
+        });
 
         btn_print.setText("Print Data");
+        btn_print.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_printActionPerformed(evt);
+            }
+        });
 
         txt_area.setColumns(20);
         txt_area.setRows(5);
         jScrollPane1.setViewportView(txt_area);
 
         btn_exit.setText("Exit");
+        btn_exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_exitActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(44, 44, 44)
-                        .addComponent(seat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel4)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(rb_gold)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(rb_reguler)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(rb_ultraxd))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txt_price, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_input)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_exit)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_print)
-                .addGap(6, 6, 6))
+                .addGap(154, 154, 154)
+                .addComponent(jLabel1)
+                .addContainerGap(214, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(154, 154, 154)
-                        .addComponent(jLabel1))
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(44, 44, 44)
+                                .addComponent(seat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel4)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(rb_gold)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(rb_reguler)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(rb_ultraxd))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txt_price, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(18, Short.MAX_VALUE))
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btn_input)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_exit)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_print))
+                    .addComponent(jScrollPane1))
+                .addGap(14, 14, 14))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap(23, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(seat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_input)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_exit)
-                            .addComponent(btn_print, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel2)
+                        .addComponent(seat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btn_input)
+                        .addComponent(btn_exit)
+                        .addComponent(btn_print, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
                             .addComponent(rb_reguler)
@@ -218,14 +297,13 @@ public class storyuu extends javax.swing.JFrame {
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_price, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jScrollPane1)))
-                .addContainerGap())
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1, 1, 1)))
+                .addComponent(jLabel4))
         );
 
         pack();
@@ -233,6 +311,12 @@ public class storyuu extends javax.swing.JFrame {
 
     private void rb_ultraxdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_ultraxdActionPerformed
         // TODO add your handling code here:
+        //displays the price after selecting the ticket type
+        //ultra xd
+        if(rb_ultraxd.isSelected())
+        {
+            txt_price.setText(String.valueOf(ultra));
+        }
     }//GEN-LAST:event_rb_ultraxdActionPerformed
 
     private void seatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatActionPerformed
@@ -271,6 +355,123 @@ public class storyuu extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_seatActionPerformed
+
+    private void rb_regulerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_regulerActionPerformed
+        // TODO add your handling code here:
+        //displays the price after selecting the ticket type
+        //reguler
+        if(rb_reguler.isSelected())
+        {
+            txt_price.setText(String.valueOf(reguler));
+        }
+    }//GEN-LAST:event_rb_regulerActionPerformed
+
+    private void rb_goldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_goldActionPerformed
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        //displays the price after selecting the ticket type
+        //gold
+        if(rb_gold.isSelected())
+        {
+            txt_price.setText(String.valueOf(gold));
+        }
+        
+        
+    }//GEN-LAST:event_rb_goldActionPerformed
+
+    private void txt_purchaseamountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_purchaseamountActionPerformed
+        // TODO add your handling code here:
+        //input the total of ticket and the total pay
+        buy=Integer.parseInt(txt_purchaseamount.getText());
+        price=Integer.parseInt(txt_price.getText());
+        total=payment*price;
+        txt_totalpay.setText(String.valueOf(total));
+               
+    }//GEN-LAST:event_txt_purchaseamountActionPerformed
+
+    private void txt_totalpayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_totalpayActionPerformed
+        // TODO add your handling code here:
+        //input the purchase amount and the total payment
+        total=Integer.parseInt(txt_totalpay.getText());
+        change=Integer.parseInt(txt_totalpay.getText());
+        total=total-change;
+        txt_change.setText(String.valueOf(total));
+               
+        
+    }//GEN-LAST:event_txt_totalpayActionPerformed
+
+    private void txt_purchaseamountKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_purchaseamountKeyReleased
+        // TODO add your handling code here:
+        int a,b,c;
+        a=Integer.valueOf(txt_price.getText());
+        b=Integer.valueOf(txt_purchaseamount.getText());
+        c=a*b;
+        txt_totalpay.setText(""+c);
+        
+    }//GEN-LAST:event_txt_purchaseamountKeyReleased
+
+    private void btn_exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_exitActionPerformed
+        // TODO add your handling code here:
+        int answer=JOptionPane.showConfirmDialog(null,"you will exit","exit",JOptionPane.OK_OPTION );
+        if(answer==JOptionPane.OK_OPTION) 
+        {
+            dispose();
+        }
+    }//GEN-LAST:event_btn_exitActionPerformed
+
+    private void txt_paymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_paymentActionPerformed
+        // TODO add your handling code here:
+        //input the total of ticket and the total payment
+        payment=Integer.parseInt(txt_payment.getText());
+        change=Integer.parseInt(txt_totalpay.getText());
+        total=payment-change;
+        txt_change.setText(String.valueOf(total));
+        
+    }//GEN-LAST:event_txt_paymentActionPerformed
+
+    private void txt_paymentKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_paymentKeyReleased
+        // TODO add your handling code here:
+          int a,b,c;
+        a=Integer.valueOf(txt_payment.getText());
+        b=Integer.valueOf(txt_totalpay.getText());
+        c=a-b;
+        txt_change.setText(""+c);
+        
+    }//GEN-LAST:event_txt_paymentKeyReleased
+
+    private void btn_inputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_inputActionPerformed
+        // TODO add your handling code here:
+        buttonGroup1.clearSelection();
+        txt_price.setText("");
+        seat.setSelectedItem("Select Ticket Type");
+        txt_name.setText("");
+        txt_totalpay.setText("");
+        txt_purchaseamount.setText("");
+        txt_payment.setText("");
+        txt_change.setText("");
+    }//GEN-LAST:event_btn_inputActionPerformed
+
+    private void btn_printActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_printActionPerformed
+        // TODO add your handling code here:
+        btn_print.setText((String)seat.getSelectedItem());
+        txt_area.setText(
+        "Customer Name    :"+txt_name.getText()+"\n"+
+        "Purchase Amount  :"+txt_purchaseamount.getText()+"\n"+
+        "Total Pay        :"+txt_totalpay.getText()+"\n"+
+        "Payment          :"+txt_payment.getText()+"\n"+   
+        "Change           :"+txt_change.getText()+"\n");
+                
+                
+      
+    }//GEN-LAST:event_btn_printActionPerformed
+
+    private void txt_changeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_changeKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_changeKeyReleased
+
+    private void txt_changeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_changeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_changeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -313,6 +514,7 @@ public class storyuu extends javax.swing.JFrame {
     private javax.swing.JButton btn_print;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -330,6 +532,7 @@ public class storyuu extends javax.swing.JFrame {
     private javax.swing.JTextArea txt_area;
     private javax.swing.JTextField txt_change;
     private javax.swing.JTextField txt_name;
+    private javax.swing.JTextField txt_payment;
     private javax.swing.JTextField txt_price;
     private javax.swing.JTextField txt_purchaseamount;
     private javax.swing.JTextField txt_totalpay;

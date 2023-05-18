@@ -59,12 +59,18 @@ public class storyuu extends javax.swing.JFrame {
         txt_area = new javax.swing.JTextArea();
         btn_exit = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
 
         jLabel12.setText("jLabel12");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(255, 204, 204));
+        setPreferredSize(new java.awt.Dimension(800, 800));
         getContentPane().setLayout(null);
 
         jLabel1.setBackground(new java.awt.Color(102, 0, 0));
@@ -132,6 +138,12 @@ public class storyuu extends javax.swing.JFrame {
         });
         getContentPane().add(rb_gold);
         rb_gold.setBounds(120, 140, 70, 21);
+
+        txt_price.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_priceActionPerformed(evt);
+            }
+        });
         getContentPane().add(txt_price);
         txt_price.setBounds(120, 180, 95, 22);
 
@@ -148,6 +160,12 @@ public class storyuu extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         jLabel9.setText("Change");
+
+        txt_name.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_nameActionPerformed(evt);
+            }
+        });
 
         txt_purchaseamount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -282,7 +300,27 @@ public class storyuu extends javax.swing.JFrame {
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/background1.jpg"))); // NOI18N
         getContentPane().add(jLabel11);
-        jLabel11.setBounds(0, 0, 660, 520);
+        jLabel11.setBounds(0, 0, 1000, 520);
+
+        jLabel13.setText("jLabel13");
+        getContentPane().add(jLabel13);
+        jLabel13.setBounds(30, 200, 43, 16);
+
+        jLabel14.setText("jLabel14");
+        getContentPane().add(jLabel14);
+        jLabel14.setBounds(30, 200, 43, 16);
+
+        jLabel15.setText("jLabel15");
+        getContentPane().add(jLabel15);
+        jLabel15.setBounds(230, 70, 43, 16);
+
+        jLabel16.setText("jLabel16");
+        getContentPane().add(jLabel16);
+        jLabel16.setBounds(490, 320, 43, 16);
+
+        jLabel17.setText("jLabel17");
+        getContentPane().add(jLabel17);
+        jLabel17.setBounds(460, 410, 43, 16);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -451,6 +489,14 @@ public class storyuu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_changeActionPerformed
 
+    private void txt_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_nameActionPerformed
+
+    private void txt_priceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_priceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_priceActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -495,6 +541,11 @@ public class storyuu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
